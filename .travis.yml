@@ -1,0 +1,32 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+    -   ~/.npm
+
+node_js:
+  - '12'
+
+git:
+  depth: 3
+
+script:
+  - yarn test
+
+notifications:
+  slack: 3wavesinnovations:kAgdXNZub36nBm8rkJRnosZU
+  email:
+    reciepients:
+      - nicolasnn@vivaldi.net
+    on_success: always
+    on_failure: always
+
+deploy: 
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: 9612e791-1107-4ab1-a344-be4ef4326b59
+  app: platzi-store-backend2
+  on:
+    repo: zzznavarrete/platzi-store-backend
